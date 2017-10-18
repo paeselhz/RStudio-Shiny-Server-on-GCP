@@ -8,3 +8,5 @@ This guide is a step-by-step way to show how to configure the Google Cloud Platf
 
 # Setting up the GCP VM instance
 In order to use the google services, you need to signup for the cloud feature, with a valid billing account, even though you receive $300 to use the services for the first time.
+
+# IN DEVELOPMENT!!!
