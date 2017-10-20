@@ -46,8 +46,64 @@ After that is done, you'll open WinSCP, and create a new connection. At the Host
 
 If this setting went sucessfully, you'll be able to see at the left portion of your screen the files of your local machine, and at the right side of your monitor, the files of you virtual machine. Success, we have managed to enter the files at the google cloud server!
 
+### Allowing ports for Rstudio Server and Shiny Server
 
+Even though we haven't installed yet the RStudio nor the Shiny Server, we can allow the connection ports of the server that will be used later by this applications to connect via browser to our server.
 
+In order to do that, you'll open the GCloud SDK feature, and paste the following codes:
+- For the RStudio Connection:
+```
+sudo gcloud compute firewall-rules create rstudio-conn --allow=tcp:8787
+```
+- For the Shiny Server Connection:
+```
+sudo gcloud compute firewall-rules create shiny-conn --allow=tcp:3838
+```
+
+Done! Now you'll be able to access the hosted process by RStudio and Shiny Server
+
+# Installing R at your Virtual Machine
+
+Now, we have the configuration, and connection setup, we need to open WinSCP, and open Putty, to use the terminal command line at our virtual machine.
+
+Before installing any applications, make sure that your machine is up-to-date running this commands:
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+After it went sucessfully, you'll need to add the R repository to the sources.list file, so that the Ubuntu will know where to fetch the application. The code chunk below adds a line at the repository list, then passes a key for the ubuntu server to download R, updates the existing packages, and installs r-base and r-base dev.
+```
+sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo apt-get update
+sudo apt-get install r-base r-base-dev
+```
+
+A few features won't work using only the r-base, since the packages are based on other programs as well, so to cover a few of those, below are the codes used to install the software needed.
+
+1. Spatial Libraries: 
+```
+sudo apt-get install libgeos-dev libproj-dev libgdal-dev
+```
+2. Tidyverse Universe: 
+```
+sudo apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev
+```
+
+Now, you can run R at your virtual machine. Since the user logged in does note have root permissions, we advise running R with the following code, so that the instalation of packages will be smoother this way.
+```
+sudo -i R
+```
+
+Now that we have R open at the terminal of our virtual machine, we might as well install a few packages that will be useful with Shiny, such as the shiny package, the RMarkdown package, and dplyr.
+
+To do that, at the command line in R type:
+```
+install.packages(c('shiny', 'rmarkdown', 'dplyr'))
+```
+
+Select the desired mirror, and download the forementioned packages. This process might take a while.
 
 
 
