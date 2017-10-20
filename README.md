@@ -131,6 +131,24 @@ This process will prompt you to create a password and set a few parameters for t
 
 NOTE: Remember, the Rstudio is not running with root permissions, so to install new packages and save files at different folders, you'll need to do that using the linux terminal, with the help of the `sudo` command.
 
+# Installing Shiny Server at your Virtual Machine
+
+The process of installation of the shiny server is pretty similar to the one of the RStudio Server, the difference is the door that the process will be hosted, which by default is 3838, and that the creation of files inside shiny-server is dependent on root permissions, so every modification must be dealt with a `sudo` prefix.
+
+To install the Shiny Server, we'll install the gdebi to execute the installation, if you already have installed gdebi before, you can discard the first line. The second line is to download the file of instalation, and the third one is to execute the installation.
+
+```
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb
+sudo gdebi shiny-server-1.5.5.872-amd64.deb
+```
+
+As well as with the RStudio Server installation, you'll be prompted to agree with the installation. If it all went sucessfully you'll notice a shiny-server process up and running.
+
+To verify if the installation is complete, you can access `http://your_external_ip:3838`. If everything is fine, you'll see this screen:
+
+![Shiny Server Welcome Page](pics/shiny_welcome.png)
+
 
 
 # IN DEVELOPMENT!!!
