@@ -105,6 +105,31 @@ install.packages(c('shiny', 'rmarkdown', 'dplyr'))
 
 Select the desired mirror, and download the forementioned packages. This process might take a while.
 
+# Installing RStudio Server at your Virtual Machine
+
+Now, we have R installed at our virtual machines, and we need to install the RStudio server in order to access it through the external ip address at door 8787(which is default). To do that, we need to install gdebi first, which is used to install both Shiny Server and Rstudio Server.
+
+The following code will install gdebi, download the .deb file that hosts the RStudio server file, and execute it.
+```
+sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.383-i386.deb
+sudo gdebi rstudio-server-1.1.383-i386.deb
+```
+
+This execution will prompt you to agree with the installation of RStudio server, and if all went well, you'll see that the rstudio-server process is running.
+
+To verify if the installation went correctly, access `http://your_external_ip:8787`. If everything is fine, you'll find this screen:
+
+![RStudio Server Login Page](pics/rstudio_log_page.png)
+
+After this, you'll need to create a user to use the RStudio hosted at your virtual machine, so you go back to the linux terminal, and type: 
+```
+sudo adduser YOUR_USER_NAME
+```
+
+This process will prompt you to create a password and set a few parameters for this new user. But after that you'll be able to use YOUR_USER_NAME and the chosen password to login at RStudio Server. If this process went well, you'll find the RStudio interface at your browser. 
+
+NOTE: Remember, the Rstudio is not running with root permissions, so to install new packages and save files at different folders, you'll need to do that using the linux terminal, with the help of the `sudo` command.
 
 
 
