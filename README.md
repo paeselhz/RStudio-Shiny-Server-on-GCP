@@ -4,10 +4,10 @@ The ultimate guide to deploy Rstudio Open Source and Shiny Server Open Source at
 # Introduction
 With the advance of cloud computing, and the more acessibility given to this platforms, there's an uprising trend to use the exisiting cloud services, and integrating it with one of the greatest statistical softwares in the market: R!
 
-This guide is a step-by-step way to show how to configure the Google Cloud Platforms as easy as possible, and how to set up two of the most used features of R in the cloud: RStudio Server - To code wherever you are; and Shiny Server, to deploy amazing data visualization websites without worries.
+This guide is a step-by-step way to show how to configure the Google Cloud Platform as easy as possible, and how to set up two of the most used features of R in the cloud: RStudio Server - To develop your code with an easy to use interface; and Shiny Server, to deploy amazing data visualization websites easily.
 
 # Setting up the GCP VM instance
-In order to use the google services, you need to signup for the cloud feature, with a valid billing account, even though you receive $300 to use the services for the first time.
+In order to use the google services, you need to signup for the cloud feature (`cloud.google.com`), with a valid billing account, even though you receive $300 to use the services for the first time.
 
 After logging in with your google account, and setting up your google cloud console. There are a few steps to take that make the experience of using cloud computing easier. First of all, you'll need a few applications to connect to your server, download the desirable autentications to operate and transfer files from the local machine to your google cloud compute engine.
 
@@ -40,9 +40,9 @@ To do that you click on the arrow, at the left of SSH button, as shown below, an
 
 This step will generate a line of code that will be used to create a secure connection between your local machine, and your server. Do not share this snippet with anyone, since it can be used to connect to your server. Copy this line of code, and paste at the Google SDK app that we downloaded before.
 
-It'll prompt you to authenticate your connection with google, before downloading the private key. After that is done, you'll ve able to find the private key at your Users folder, inside the /.ssh folder. If the authentication went correctly, the gcloud SDK will open a Putty session, running the linux distro that is hosted by the virtual machine, you can close this, since we'll authenticate our connection through WinSCP.
+It'll prompt you to authenticate your connection with google, before downloading the private key. After that is done, you'll be able to find the private key at your Users folder, inside the `/.ssh` folder. If the authentication went correctly, the gcloud SDK will open a Putty session, running the linux distro that is hosted by the virtual machine, you can close this, since we'll authenticate our connection through WinSCP.
 
-After that is done, you'll open WinSCP, and create a new connection. At the Host you'll insert the EXTERNAL IP ADDRESS that is given by google to your server, the door will remain 22, and the user will be the name of your google account user. After filling this parts, leave the password blank, and click in the Advanced... box, right below the password field. Inside of the Advanced Settings, go to SSH > Authentication at the map to your left. At the field that asks for your Private Key File, you'll click browse, and search for the "google_compute_engine.ppk" file that is stored at your User/.ssh folder.
+After that is done, you'll open WinSCP, and create a new connection. At the Host you'll insert the EXTERNAL IP ADDRESS that is given by google to your server, the door will remain 22, and the user will be the name of your google account user. After filling this parts, leave the password blank, and click in the Advanced... box, right below the password field. Inside of the Advanced Settings, go to SSH > Authentication at the map to your left. At the field that asks for your Private Key File, you'll click browse, and search for the `"google_compute_engine.ppk"` file that is stored at your `User/.ssh/` folder.
 
 If this setting went sucessfully, you'll be able to see at the left portion of your screen the files of your local machine, and at the right side of your monitor, the files of you virtual machine. Success, we have managed to enter the files at the google cloud server!
 
@@ -64,7 +64,7 @@ Done! Now you'll be able to access the hosted process by RStudio and Shiny Serve
 
 # Installing R at your Virtual Machine
 
-Now, we have the configuration, and connection setup, we need to open WinSCP, and open Putty, to use the terminal command line at our virtual machine.
+Now, we have the configuration, and connection setup, we need to open WinSCP, and open Putty (Ctrl+P), to use the terminal command line at our virtual machine.
 
 Before installing any applications, make sure that your machine is up-to-date running this commands:
 ```
@@ -109,7 +109,7 @@ Select the desired mirror, and download the forementioned packages. This process
 
 Now, we have R installed at our virtual machines, and we need to install the RStudio server in order to access it through the external ip address at door 8787(which is default). To do that, we need to install gdebi first, which is used to install both Shiny Server and Rstudio Server.
 
-The following code will install gdebi, download the .deb file that hosts the RStudio server file, and execute it.
+The following code will install gdebi, download the .deb file that contains the RStudio server file, and execute it.
 ```
 sudo apt-get install gdebi-core
 wget https://download2.rstudio.org/rstudio-server-1.1.383-i386.deb
