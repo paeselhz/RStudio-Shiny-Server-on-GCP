@@ -149,6 +149,12 @@ To verify if the installation is complete, you can access `http://your_external_
 
 ![Shiny Server Welcome Page](pics/shiny_welcome.png)
 
+NOTE: Even though this might not be considered as a good practice in development, to make your life easier while dealing with shiny apps in construction, you might set full edit permissions to the folder containing shiny-server folders using the following command:
+
+```
+sudo chmod 777 -R /srv/shiny-server/
+```
+
 # Final Remarks
 
 This project is in constant updates and modifications, so you might notice a few changes since the last access, or the last commit. If is there any trouble with any of the installations above, make sure to check the documentation of each feature, to ensure that everything is working fine, and as is supposed to work.
