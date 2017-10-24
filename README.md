@@ -149,6 +149,15 @@ To verify if the installation is complete, you can access `http://your_external_
 
 ![Shiny Server Welcome Page](pics/shiny_welcome.png)
 
+# Final Remarks
 
+This project is in constant updates and modifications, so you might notice a few changes since the last access, or the last commit. If is there any trouble with any of the installations above, make sure to check the documentation of each feature, to ensure that everything is working fine, and as is supposed to work.
 
-# IN DEVELOPMENT!!!
+The links below are easy links for the documentation for each of the features revised by this post.
+
+- Google Cloud Compute Documentation (https://cloud.google.com/docs/)
+- RStudio Server Documentation (http://docs.rstudio.com/ide/server-pro/)
+- Shiny Server Documentation (http://docs.rstudio.com/shiny-server/)
+
+Thanks!
+Luis Paese
