@@ -112,8 +112,8 @@ Now, we have R installed at our virtual machines, and we need to install the RSt
 The following code will install gdebi, download the .deb file that contains the RStudio server file, and execute it.
 ```
 sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/rstudio-server-1.1.383-i386.deb
-sudo gdebi rstudio-server-1.1.383-i386.deb
+wget https://download2.rstudio.org/rstudio-server-1.1.383-amd64.deb
+sudo gdebi rstudio-server-1.1.383-amd64.deb
 ```
 
 This execution will prompt you to agree with the installation of RStudio server, and if all went well, you'll see that the rstudio-server process is running.
