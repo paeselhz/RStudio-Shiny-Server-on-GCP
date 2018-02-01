@@ -24,7 +24,7 @@ Since the installation of the desired software is complete, now you need to crea
 
 At this section, you can choose a name for your virtual machine, later you can select where that VM instance will be hosted, the cheaper places are in the US, but given the distance, you might find the connection "laggy". After picking the name and the zone, select what kind of instance you'll be holding. This will be given by your use of technologies, if you'll need lots of memory or lots of processing cores, here's where you'll choose it. The price per month will depend on this configurations.
 
-After choosing the kind of horsepower that will equip your virtual machine, you can choose what kind of Operational System will come installed with it. For this project, I will choose Ubuntu 14.04, that is one of the most stable versions of Ubuntu server, and lots of applications are supported by it. Also, while choosing the OS, you can choose what kind of storage you'll need. For this project, we will choose 30 GBs hosted at an SSD. This gives us speed and reliability.
+After choosing the kind of horsepower that will equip your virtual machine, you can choose what kind of Operational System will come installed with it. For this project, I will choose Ubuntu 16.04, the newest LTS version of this OS available. Also, while choosing the OS, you can choose what kind of storage you'll need. For this project, we will choose 20 GBs hosted at an SSD, this choice can be made given the amount of space you need, for simple projects 20GB should be more than enough. This gives us speed and reliability.
 
 Later, the last thing to do is allow HTTP traffic and create the VM instance. This process might take a while. If all went correctly you probably will see something like this:
 
@@ -74,7 +74,7 @@ sudo apt-get upgrade
 
 After it went successfully, you'll need to add the R repository to the sources.list file, so that the Ubuntu will know where to fetch the application. The code chunk below adds a line to the repository list, then passes a key for the Ubuntu server to download R, updates the existing packages, and installs r-base and r-base dev.
 ```
-sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update
 sudo apt-get install r-base r-base-dev
@@ -112,8 +112,8 @@ Now, we have R installed on our virtual machines, and we need to install the RSt
 The following code will install gdebi, download the .deb file that contains the RStudio server file, and execute it.
 ```
 sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/rstudio-server-1.1.383-amd64.deb
-sudo gdebi rstudio-server-1.1.383-amd64.deb
+wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.6.875-amd64.deb
+sudo gdebi shiny-server-1.5.6.875-amd64.deb
 ```
 
 This execution will prompt you to agree with the installation of RStudio server, and if all went well, you'll see that the rstudio-server process is running.
