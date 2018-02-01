@@ -113,7 +113,7 @@ The following code will install gdebi, download the .deb file that contains the 
 ```
 sudo apt-get install gdebi-core
 wget https://download2.rstudio.org/rstudio-server-1.1.419-amd64.deb
-sudo gdebi gdebi rstudio-server-1.1.419-amd64.deb
+sudo gdebi rstudio-server-1.1.419-amd64.deb
 ```
 
 This execution will prompt you to agree with the installation of RStudio server, and if all went well, you'll see that the rstudio-server process is running.
