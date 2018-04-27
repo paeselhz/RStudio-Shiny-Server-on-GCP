@@ -105,6 +105,11 @@ install.packages(c('shiny', 'rmarkdown', 'dplyr'))
 
 Select the desired mirror, and download the aforementioned packages. This process might take a while.
 
+Once installation is complete, leave the R command line:
+```
+quit()
+```
+
 # Installing RStudio Server on your Virtual Machine
 
 Now, we have R installed on our virtual machines, and we need to install the RStudio server in order to access it through the external ip address at door 8787(which is default). To do that, we need to install gdebi first, which is used to install both Shiny Server and Rstudio Server.
