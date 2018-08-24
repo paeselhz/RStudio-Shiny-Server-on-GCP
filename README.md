@@ -1,13 +1,14 @@
 # Google Cloud Platform - How-To deploy Shiny Server and RStudio Server
 The ultimate guide to deploying Rstudio Open Source and Shiny Server Open Source at Google Cloud Platform
+ - Updated on August 28th, 2018
 
 # Introduction
-With the advance of cloud computing, and the more accessibility given to this platforms, there's an uprising trend to use the existing cloud services, and integrating it with one of the greatest statistical software in the market: R!
+With the advance of cloud computing, and the higher accessibility given to this platforms, there's an uprising trend to use the existing cloud services, and integrating it with one of the greatest statistical software in the market: R!
 
 This guide is a step-by-step way to show how to configure the Google Cloud Platform as easy as possible, and how to set up two of the most used features of R in the cloud: RStudio Server - To develop your code with an easy to use interface; and Shiny Server, to deploy amazing data visualization websites easily.
 
 # Setting up the GCP VM instance
-In order to use the Google services, you need to signup for the cloud feature (`cloud.google.com`), with a valid billing account, even though you receive $300 to use the services for the first time.
+In order to use the Google services, you need to signup for the cloud feature (`cloud.google.com`), with a valid billing account. Many cloud services such as GCP, Amazon Web Services and others offer Free Tier Machines, that are often offered for a year.
 
 After logging in to your Google account, and setting up your google cloud console. There are a few steps to take that make the experience of using cloud computing easier. First of all, you'll need a few applications to connect to your server, download the desirable authentications to operate and transfer files from the local machine to your Google cloud compute engine.
 
@@ -24,7 +25,7 @@ Since the installation of the desired software is complete, now you need to crea
 
 At this section, you can choose a name for your virtual machine, later you can select where that VM instance will be hosted, the cheaper places are in the US, but given the distance, you might find the connection "laggy". After picking the name and the zone, select what kind of instance you'll be holding. This will be given by your use of technologies, if you'll need lots of memory or lots of processing cores, here's where you'll choose it. The price per month will depend on this configurations.
 
-After choosing the kind of horsepower that will equip your virtual machine, you can choose what kind of Operational System will come installed with it. For this project, I will choose Ubuntu 16.04, the newest LTS version of this OS available. Also, while choosing the OS, you can choose what kind of storage you'll need. For this project, we will choose 20 GBs hosted at an SSD, this choice can be made given the amount of space you need, for simple projects 20GB should be more than enough. This gives us speed and reliability.
+After choosing the kind of horsepower that will equip your virtual machine, you can choose what kind of Operational System will come installed with it. For this project, I will choose Ubuntu 18.04, the newest LTS version of this OS available. Also, while choosing the OS, you can choose what kind of storage you'll need. For this project, we will choose 20 GBs hosted at an SSD, this choice can be made given the amount of space you need, for simple projects 20GB should be more than enough. This gives us speed and reliability.
 
 Later, the last thing to do is allow HTTP traffic and create the VM instance. This process might take a while. If all went correctly you probably will see something like this:
 
@@ -74,7 +75,7 @@ sudo apt-get upgrade
 
 After it went successfully, you'll need to add the R repository to the sources.list file, so that the Ubuntu will know where to fetch the application. The code chunk below adds a line to the repository list, then passes a key for the Ubuntu server to download R, updates the existing packages, and installs r-base and r-base dev.
 ```
-sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
+sudo sh -c 'echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" >> /etc/apt/sources.list'
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update
 sudo apt-get install r-base r-base-dev
@@ -117,8 +118,8 @@ Now, we have R installed on our virtual machines, and we need to install the RSt
 The following code will install gdebi, download the .deb file that contains the RStudio server file, and execute it.
 ```
 sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/rstudio-server-1.1.419-amd64.deb
-sudo gdebi rstudio-server-1.1.419-amd64.deb
+wget https://download2.rstudio.org/rstudio-server-1.1.456-amd64.deb
+sudo gdebi rstudio-server-1.1.456-amd64.deb
 ```
 
 This execution will prompt you to agree with the installation of RStudio server, and if all went well, you'll see that the rstudio-server process is running.
@@ -144,8 +145,8 @@ To install the Shiny Server, we'll install the gdebi to execute the installation
 
 ```
 sudo apt-get install gdebi-core
-wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb
-sudo gdebi shiny-server-1.5.5.872-amd64.deb
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.7.907-amd64.deb
+sudo gdebi shiny-server-1.5.7.907-amd64.deb
 ```
 
 As well as with the RStudio Server installation, you'll be prompted to agree with the installation. If it all went successfully  you'll notice a shiny-server process up and running.
